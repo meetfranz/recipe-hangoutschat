@@ -22,6 +22,17 @@ module.exports = (Franz) => {
     Franz.setBadge(directCount, indirectCount);
   };
 
+  document.addEventListener('click', (e) => {
+    window.log(e.target);
+    const { tagName, target, href } = e.target;
+
+    if (tagName === 'A' && target === '_blank') {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      window.open(href);
+    }
+  });
+
   // check for new messages every second and update Franz badge
   Franz.loop(getMessages);
 };
