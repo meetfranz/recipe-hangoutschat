@@ -23,7 +23,6 @@ module.exports = (Franz) => {
   };
 
   document.addEventListener('click', (e) => {
-    window.log(e.target);
     const { tagName, target, href } = e.target;
 
     if (tagName === 'A' && target === '_blank') {
